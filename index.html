@@ -1,0 +1,493 @@
+<!doctype html>
+<html>
+<head>
+    <title>Javascript</title>
+    <meta name="description" content="That my Javascript Basic">
+    <meta name="keywords" content="course of Javascript">
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="icon" type="image/x-icon" href="/Asset/img/icons8-javascript.gif" alt="icons8.com">
+
+    <!-- Style -->
+    <link rel="stylesheet" href="/Asset/myCss/mainStyle.css" />
+    <link rel="stylesheet" href="/Asset/myCss/footer.css" />
+    <link rel="stylesheet" href="/Asset/bootstrap-3.1.1-dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Asset/font-awesome-4.7.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/Asset/myCss/reponsive.css" />
+
+    <!-- Out Src -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&family=Source+Sans+Pro&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header on menu -->
+    <div class='header-top-bg'>
+        <div class="header-top-in">
+            <div class="header-on-menu">
+                <div class="container">
+                    <div class="row">
+                        <!-- Logo -->
+                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12 part-left">
+                            <a href="index.html">Supermarket JS</a>
+                        </div>
+                        <!-- Search & user & shopping cart-->
+                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-12 text-xs-right part-right">
+                            <div class="form-group-search">
+                                <input id="searchMachine" class="form-control search-bar" type="text" placeholder="Search..."/>
+                                <button id="searching" class="btn-search">Search</button>
+                            </div>
+
+                            <div id="grUser" class="group-user-info">
+                                <div class="user-info" >
+                                    <div id="iconUser" class="d-inline-block user-desktop"><i class="fa fa-user-o fa-2x" aria-hidden="true"></i></div>
+                                    <div class="txt-in-header">User</div>
+                                </div>
+                                <ul id="menu-info-user" class="dropDown-menu">
+                                    <li>
+                                        <a href="#"><i class="fa fa-user" aria-hidden="true"></i>Log In</a>
+                                    </li>
+                                    <li>
+                                        <a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div id="grCart" class="group-shopping-cart">
+                                <div class="shopping-cart">
+                                    <div id="iconCart" class="d-inline-block cart-desktop"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></div>
+                                    <div class="txt-in-header">0.00 vnđ</div>
+                                </div>
+                                <ul id="menu-info-cart" class="dropDown-menu">
+                                    <li>
+                                        <div class="">Your cart is empty!</div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id ="menu-sticky" class="nav-menu">
+            <!-- Nav mobile -->
+            <div class="nav-mobile">
+                <div class="icon-mobile" id="btnmenu">
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </div>
+                <div class="item_menu" id="menutop">
+                    <form>
+                        <input type="text" name="search" placeholder="Tìm kiếm sản phẩm..." />
+                        <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                    </form>
+                    <ul>
+                        <li><a href="#">Sofa</a></li>
+                        <li><a href="#">Accessories</a></li>
+                        <li><a href="#">Laptop</a></li>
+                        <li><a href="#">Bag</a></li>
+                        <li><a href="#">Doll</a></li>
+                        <li><a href="#">Arts</a></li>
+                    </ul>
+
+                </div>
+            </div> 
+            <!-- End nav mobile -->
+                <div class="container nav-menu-in">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-4 leftwidth">
+                            <div class="categories-menu-drop">
+                                <div class="dropbtn-categories">
+                                    <i class="fa fa-bars bars-outline" aria-hidden="true"></i>
+                                    <span>ALL CATEGORIES</span>
+                                    <i class="fa fa-angle-down" aria-hidden="true"></i>
+                                </div>
+                                <div class="categorires-menu-list">
+                                    <a href="#">Sofa</a>
+                                    <a href="#">Accessories</a>
+                                    <a href="#">Laptop</a>
+                                    <a href="#">Bag</a>
+                                    <a href="#">Doll</a>
+                                    <a href="#">Arts</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-9 col-sm-8 rightwidth">
+                            <div class="menu-on-right-bar">
+                                <div class="active-tag">
+                                    <div class="dropdown-btn">Sofa</div>
+                                    <div class="dropdown-list">
+                                        <a href="#">New</a>
+                                        <a href="#">Best</a>
+                                        <a href="#">HOT</a>
+                                    </div>
+                                </div>
+                                                                       
+                                <span>|</span><a href="#">Accessories</a><span>|</span>
+                                <a href="#">Art</a> <span>|</span>
+                                <a href="#">Laptop</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="banner-on-top-bg">
+                <div class="banner-on-top-in">
+                    <div class="img-banner">
+                        <img src="/Asset/img/BannerShopping.png" />
+                        <div class="txt-for-banner-layer">
+                            <div class="txt-in-banner">
+                                <div class="txt-bn-title">Accessories</div>
+                                <div class="txt-bn-title-Large"><h2>New Collection 2022</h2></div>
+                                <div class="txt-bn-desr">Desreption Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the potential intent to purchase a suitable selection of them.Shopping is an activity in which a customer browses the available goods or services presented by one or more retailers with the potential intent to purchase a suitable selection of them.</div>
+                                <div class="btn-on-banner">
+                                    <a href="#">SHOP NOW</a>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="body-middle-bg">
+        <div class="body-middle-in">
+            <div class="banner-mini">
+                <div class="img-banner-mini">
+                    <div class="beffect">
+                        <a href="#"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/modules/wbimgoffer/views/img/offerbanner-1.jpg" /></a>
+                        <div class="layout-on-img"></div>
+                    </div>
+                </div>
+
+                <div class="img-banner-mini">
+                    <div class="beffect">
+                        <a href="#"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/modules/wbimgoffer/views/img/offerbanner-2.jpg" /></a>
+                        <div class="layout-on-img"></div>
+                    </div>
+                </div>
+
+                <div class="img-banner-mini">
+                    <div class="beffect">
+                        <a href="#"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/modules/wbimgoffer/views/img/offerbanner-3.jpg" /></a>
+                        <div class="layout-on-img"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Body badge -->
+    <div class="benefit-shopping-bg">
+        <div class="benefit-shopping-in">
+            <div class="content-benefit-bg">
+                <div class="content-benefit-in">
+                    <div class="img-in-benefit"><img src="https://img.icons8.com/stickers/100/000000/technical-support.png" width="50px" height="auto"/></div>
+                    <h4 class="title-in-benefit">24/7 Free Support</h4>
+                    <div class="txt-ders">Online Support 24/7</div>
+                </div>
+            </div>
+
+            <div class="content-benefit-bg">
+                <div class="content-benefit-in">
+                    <div class="img-in-benefit"><img src="https://img.icons8.com/offices/100/000000/money-box.png" width="50px" height="auto"/></div>
+                    <h4 class="title-in-benefit">Money Save</h4>
+                    <div class="txt-ders">Save your money</div>
+                </div>
+            </div>
+
+            <div class="content-benefit-bg">
+                <div class="content-benefit-in">
+                    <div class="img-in-benefit"><img src="https://img.icons8.com/office/100/000000/gift--v1.png" width="50px" height="auto"/></div>
+                    <h4 class="title-in-benefit">Special Gift</h4>
+                    <div class="txt-ders">Give The Perfect Gift</div>
+                </div>
+            </div>
+
+            <div class="content-benefit-bg">
+                <div class="content-benefit-in">
+                    <div class="img-in-benefit"><img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/100/000000/external-shipping-web-store-flaticons-lineal-color-flat-icons-4.png" width="50px" height="auto"/></div>
+                    <h4 class="title-in-benefit">Worldwide Shipping</h4>
+                    <div class="txt-ders">On Order Over $89</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Products list -->
+    <div id="myTargetScroll" class="content-body-products-bg">
+        <div class="content-products-in">
+            <!-- Title on list products -->
+            <div class="heading-on-products-list">
+                <div class="title-on-pdList"><h4>PRODUCTS</h4></div>
+                <div class="user-chosen-type">
+                    <a href="#" class="item-chosen active-btn">NEW</a>
+                    <a href="#" class="item-chosen active-btn2">HOT</a>
+                    <a href="#" class="item-chosen active-btn3">BESTSELLER</a>
+                </div>
+                <div class="filter-for-products">
+                    <div id="sort-Ascen-Apha" class="items-in-filter"><span>A - Z</span></div>
+                    <div class="items-in-filter"><span>Price: Low to High</span></div>
+                    <div class="items-in-filter"><span>Price: High to Low</span></div>
+                </div>
+            </div>
+
+            <!-- List all products -->
+            <div class="pdList-bg">
+                <div id="info-list" class="pdList-in">
+                    <!-- Row 1 -->
+                    <div  class="product-info-badge">
+                        <a href="#" class="img-info-pdList"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/114-home_default/hummingbird-printed-t-shirt.jpg" width="282px" height="282px" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Bag</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">10000000 vnđ</div>
+                            <div id="addCart" class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div>
+
+                    <!-- <div class="product-info-badge">
+                        <a href="#"  class="img-info-pdList"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/73-home_default/mug-the-adventure-begins.jpg" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Shirt</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">5.000.000 vnđ</div>
+                            <div class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div>
+                    <div  class="product-info-badge">
+                        <a  href="#" class="img-info-pdList"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/97-home_default/the-adventure-begins-framed-poster.jpg" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Bag</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">20.000.000 vnđ</div>
+                            <div class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div>
+                    <div class="product-info-badge">
+                        <a  href="#" class="img-info-pdList"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/37-home_default/mountain-fox-vector-graphics.jpg" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Camera</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">12.000.000 vnđ</div>
+                            <div class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div> -->
+
+
+                    <!-- Row 2 -->
+                    <!-- <div class="product-info-badge">
+                        <a  href="#" class="img-info-pdList"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/78-home_default/mug-the-best-is-yet-to-come.jpg" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Short</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">1.000.000 vnđ</div>
+                            <div class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div>
+                    <div class="product-info-badge">
+                        <a  href="#" class="img-info-pdList"><img src="https://dostguru.com/prestashop/ES01/supermarket_02/90-home_default/today-is-a-good-day-framed-poster.jpg" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Short</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">1.000.000 vnđ</div>
+                            <div class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div>
+                    <div class="product-info-badge">
+                        <a  href="#" class="img-info-pdList"><img src="/Asset/img/DressScaled.jpg" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Dress</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">6.000.000 vnđ</div>
+                            <div class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div>
+                    <div class="product-info-badge">
+                        <a  href="#" class="img-info-pdList"><img src="/Asset/img/DressScaled2.jpg" /></a>
+                        <div class="pdList-name"><a href="#">The chosen Dress</a></div>
+                        <div class="price-n-btnAdd">
+                            <div class="price-for-pdList">8.000.000 vnđ</div>
+                            <div class="btn-addCart"><button>ADD CART</button></div>
+                        </div>
+                    </div> -->
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal box -->
+    <div id="myModal" class="modal-box">
+        <div class="shop-cart-content-bg">
+            <div class="grBtn-close"><span id="close" class="btn-close">&times;</span></div>
+            <div class="shop-cart-content-in">
+                <div class="shop-cart-content-main">
+                    <!-- content left -->
+                    <div class="cart-content-left">
+                        <div class="title-on-cart">
+                            <h4>Shopping Cart</h4>
+                            <h4><span>0</span> Items</h4>
+                        </div>
+                        <div class="cart-content-items">
+                            <div class="cart-content-items-in">
+                                <div class="title-on-items">
+                                    <div class="txt-cart">PRODUCT DETAILS</div>
+                                    <div class="txt-cart">QUANTITY</div>
+                                    <div class="txt-cart">PRICE</div>
+                                    <div class="txt-cart">TOTAL</div>
+                                </div>
+                                <div class="cart-content-row">
+                                    <div class="info-item">
+                                        <div class="img-in-cart-item"><img /></div>
+                                        <div class="info-product-cart">
+                                            <a href="#" class="name-product-cart">Chosen one</a>
+                                            <div class="btn-delete-item">Remove</div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="quantity-cart-item">
+                                        <span id="minus-btn">-</span>
+                                        <input id="number-pds" class="quantity-info-item" type="text" min='1' value="1"/>
+                                        <span id="plus-btn">+</span>
+                                    </div>
+    
+                                    <div class="price-item-cart">
+                                        <div><span class="cart-price">10000000</span> vnđ</div>
+                                    </div>
+    
+                                    <div class="price-item-cart total-price">
+                                        <div><span>10000000</span> vnđ</div>
+                                    </div>
+                                </div>
+
+                                <div class="cart-content-row">
+                                    <div class="info-item">
+                                        <div class="img-in-cart-item"><img /></div>
+                                        <div class="info-product-cart">
+                                            <a href="#" class="name-product-cart">Chosen one</a>
+                                            <div class="btn-delete-item">Remove</div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="quantity-cart-item">
+                                        <span id="minus-btn">-</span>
+                                        <input id="number-pds" class="quantity-info-item" type="text" min='1' value="1"/>
+                                        <span id="plus-btn">+</span>
+                                    </div>
+    
+                                    <div class="price-item-cart">
+                                        <div><span class="cart-price">10000000</span> vnđ</div>
+                                    </div>
+    
+                                    <div class="price-item-cart total-price">
+                                        <div><span>10000000</span> vnđ</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- content right -->
+                    <div class="cart-content-right">
+                        <div class="cart-content-right-in">
+                            <div class="title-on-cart"><h4>Order Summary</h4></div>
+                            <div class="quantity-total-price">
+                                <div>ITEMS  <span>1</span></div>
+                                <div><span>10.000.000</span> vnđ</div>
+                            </div>
+                            <div class="shipping-type-group">
+                                <h4 class="title-in-detail">SHIPPING</h4>
+                                <select class="slBox-shipping">
+                                    <option value="free">Standard Delivery - 10.000đ</option>
+                                    <option value="free">Fast Delivery - 20.000đ</option>
+                                    <option value="free">Transfer to bank</option>
+                                </select>
+                            </div>
+                            <div class="promo-code-group">
+                                <h4 class="title-in-detail">PROMO CODE</h4>
+                                <input type="text" placeholder="Enter your code"/>
+                                <button>APPLY</button>
+                            </div>
+                            <div class="total-checkout">
+                                <div class="total-money">
+                                    <span>TOTAL COST</span>
+                                    <span id="cost-final" class="cart-total-price">10.000.000 vnđ</span>
+                                </div>
+                                <div class="btn-check-out">
+                                    <button>CHECKOUT</button>
+                               </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-cart">
+                    <div class="btn-return-shop">
+                        <button id="btn-returnBack"><i class="fa fa-long-arrow-left" aria-hidden="true"></i>Continue Shopping</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+      <!-- Site footer -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-6">
+              <h6>About</h6>
+              <p class="text-justify">Welcome to JS Supermarket, we have a lot of new products, you can search for anything here. Coming to us will help save your money as well as significantly reduced shopping time. Support services are available 24/7, ready to support all your questions. Fast, safe, quality delivery when shipping. Every day there will be many attractive deals waiting for you here.</p>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Categories</h6>
+              <ul class="footer-links">
+                <li><a href="#">Sofa</a></li>
+                <li><a href="#">Accessories</a></li>
+                <li><a href="#">Laptop</a></li>
+                <li><a href="#">Bag</a></li>
+                <li><a href="#">Doll</a></li>
+                <li><a href="#">Arts</a></li>
+              </ul>
+            </div>
+  
+            <div class="col-xs-6 col-md-3">
+              <h6>Quick Links</h6>
+              <ul class="footer-links">
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Contribute</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Sitemap</a></li>
+              </ul>
+            </div>
+          </div>
+          <hr>
+        </div>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8 col-sm-6 col-xs-12">
+              <p class="copyright-text">Copyright &copy; 2022 All Rights Developed by 
+           <a href="#">ThyHuynh</a>.
+              </p>
+            </div>
+  
+            <div class="col-md-4 col-sm-6 col-xs-12">
+              <ul class="social-icons">
+                <li><a class="facebook" href="#"><i class="fa fa-facebook"></i></a></li>
+                <li><a class="twitter" href="#"><i class="fa fa-twitter"></i></a></li>
+                <li><a class="dribbble" href="#"><i class="fa fa-dribbble"></i></a></li>
+                <li><a class="linkedin" href="#"><i class="fa fa-linkedin"></i></a></li>   
+              </ul>
+            </div>
+          </div>
+        </div>
+  </footer>
+
+    <!--Script-->
+    <script src='main.js'></script>
+    <script src='/Asset/bootstrap-3.1.1-dist/js/bootstrap.min.js'></script>
+    <!-- <script src="https://cdn.jsdelivr.net/mojs/latest/mo.min.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- <script src="/Asset/js/clickEffect.js"></script> -->
+</body>
+</html>
