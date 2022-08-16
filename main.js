@@ -177,21 +177,44 @@ function loadProducts(array) {
 
   array.forEach((item) => {
     const btn = document.querySelector(`#addToCart-${item._id}`);
-
+    const txtCart = document.querySelector("#txt-on-cart");
+    const txtNumber = document.querySelector("#number-items");
+    const txtNumberCost = document.querySelector("#number-items-cost");
+    const txtTotalCost = document.querySelectorAll(".cost-final");
+    const txtTotalPriceOut = document.querySelector("#total-price-on-cart");
+    //Button add cart
     btn.onclick = function () {
       const foundIndex = cart.findIndex((element) => element._id === item._id);
 
       if (foundIndex === -1) {
         item.quantity = 1;
+        item.price_total = item.quantity * item.price;
         cart.push(item);
       } else {
         cart[foundIndex].quantity = cart[foundIndex].quantity + 1;
+        cart[foundIndex].price_total *= cart[foundIndex].quantity; 
       }
 
-      console.log(cart);
+      const sumItems = cart.reduce((tong, element) => {
+        return tong + element.quantity;
+      }, 0);
+
+      const sumTotal = cart.reduce((tong, element) =>
+      {
+        return tong + element.price_total;
+      }, 0)
+
+      
+      txtCart.innerHTML = "Your cart have " + `<b>${sumItems}</b>` + " items";
+      txtNumber.innerHTML = sumItems;
+      txtNumberCost.innerHTML = sumItems;
+      txtTotalCost.forEach((element) =>
+      {
+        element.innerHTML = sumTotal + " $"
+      });
+      txtTotalPriceOut.innerHTML = sumTotal + " $"
       loadCart(cart);
     };
-
   });
 }
 
@@ -204,13 +227,17 @@ function loadCart(array) {
               <div class="img-in-cart-item"><img src="${item.avatar}"/></div>
               <div class="info-product-cart">
                   <a href="#" class="name-product-cart">${item.name}</a>
-                  <div id="remove-${item._id}" class="btn-delete-item">Remove</div>
+                  <div id="remove-${
+                    item._id
+                  }" class="btn-delete-item">Remove</div>
               </div>
           </div>
 
           <div class="quantity-cart-item">
               <span id="minus-btn-${item._id}">-</span>
-              <input id="number-pds" class="quantity-info-item" type="text" min='1' value="${item.quantity}"/>
+              <input id="number-pds" class="quantity-info-item" type="text" min='1' value="${
+                item.quantity
+              }"/>
               <span id="plus-btn-${item._id}">+</span>
           </div>
 
@@ -218,58 +245,113 @@ function loadCart(array) {
               <div><span class="cart-price">${+item.price}</span> $</div>
           </div>
 
-          <div class="price-item-cart total-price">
-              <div><span>${+item.price * item.quantity}</span> $</div>
+          <div class="price-item-cart">
+              <div><span id="total-price">${+item.price * item.quantity}</span> $</div>
           </div>
       </div>`;
   });
 
-  
   resultCart.innerHTML = template;
 
-  array.forEach(item =>
-    {
-        const btnRemove = document.querySelector(`#remove-${item._id}`);
-        const btnAdd = document.querySelector(`#plus-btn-${item._id}`)
-        const btnMinus = document.querySelector(`#minus-btn-${item._id}`)
+  array.forEach((item) => {
+    const btnRemove = document.querySelector(`#remove-${item._id}`);
+    const btnAdd = document.querySelector(`#plus-btn-${item._id}`);
+    const btnMinus = document.querySelector(`#minus-btn-${item._id}`);
+    const txtCart = document.querySelector("#txt-on-cart");
+    const txtNumber = document.querySelector("#number-items");
+    const txtNumberCost = document.querySelector("#number-items-cost");
+    const txtTotalCost = document.querySelectorAll(".cost-final");
+    const txtTotalPriceOut = document.querySelector("#total-price-on-cart");
 
-        btnRemove.onclick = function()
-        {
-          const foundIndexDel = array.findIndex(element => element._id === item._id)
+    btnRemove.onclick = function () {
+      const foundIndexDel = array.findIndex(
+        (element) => element._id === item._id
+      );
 
-          if (!(foundIndexDel === -1))
-          {
-            cart.splice(foundIndexDel, 1);
-          }
-          loadCart(cart);
+      if (!(foundIndexDel === -1)) {
+        cart.splice(foundIndexDel, 1);
+      }
+      const subtraction = cart.reduce((tong, element) => {
+        return tong + element.quantity;
+      }, 0);
+
+      const subTotal = cart.reduce((total, element) =>
+      {
+        return total + (element.quantity * element.price);
+      }, 0);
+      txtCart.innerHTML = "Your cart have " + subtraction + " items";
+      txtNumber.innerHTML = subtraction;
+      txtNumberCost.innerHTML = subtraction;
+      txtTotalCost.forEach((element) =>
+      {
+        element.innerHTML = subTotal + " $"
+      });
+      txtTotalPriceOut.innerHTML = subTotal + " $"
+      loadCart(cart);
+    };
+    //Button add quantity
+    btnAdd.addEventListener("click", function () {
+      const foundIndexAdd = array.findIndex(
+        (element) => element._id === item._id
+      );
+
+      if (!(foundIndexAdd === -1)) {
+        cart[foundIndexAdd].quantity += 1;
+      }
+      const sumItems = cart.reduce((tong, element) => {
+        return tong + element.quantity;
+      }, 0);
+
+      const sumTotal = cart.reduce((total, element) =>
+      {
+        return total + (element.quantity * element.price);
+      }, 0);
+      console.log(sumTotal);
+      txtCart.innerHTML = "Your cart have " + sumItems + " items";
+      txtNumber.innerHTML = sumItems;
+      txtNumberCost.innerHTML = sumItems;
+      txtTotalCost.forEach((element) =>
+      {
+        element.innerHTML = sumTotal + " $"
+      });
+      txtTotalPriceOut.innerHTML = sumTotal + " $"
+      loadCart(cart);
+    });
+    //Button minus quantity
+    btnMinus.addEventListener("click", function () {
+      const foundIndexMinus = array.findIndex(
+        (element) => element._id === item._id
+      );
+
+      if (!(foundIndexMinus === -1)) {
+        cart[foundIndexMinus].quantity -= 1;
+        if (cart[foundIndexMinus].quantity == 0) {
+          cart.splice(foundIndexMinus, 1);
         }
+      }
+      const subtraction = cart.reduce((tong, element) => {
+        return tong + element.quantity;
+      }, 0);
 
-        btnAdd.addEventListener('click', function()
-        {
-          const foundIndexAdd = array.findIndex(element => element._id === item._id)
+      const subTotal = cart.reduce((total, element) =>
+      {
+        return total + (element.quantity * element.price);
+      }, 0);
+      txtCart.innerHTML = "Your cart have " + subtraction + " items";
+      txtNumber.innerHTML = subtraction;
+      txtNumberCost.innerHTML = subtraction;
+      txtTotalCost.forEach((element) =>
+      {
+        element.innerHTML = subTotal + " $"
+      });
+      txtTotalPriceOut.innerHTML = subTotal + " $"
+      loadCart(cart);
+    });
+  });
+}
 
-          if (!(foundIndexAdd === -1))
-          {
-            cart[foundIndexAdd].quantity += 1;
-          }
-          loadCart(cart);
-        })
-
-        btnMinus.addEventListener('click', function()
-        {
-          const foundIndexMinus = array.findIndex(element => element._id === item._id)
-
-          if (!(foundIndexMinus === -1))
-          {
-            cart[foundIndexMinus].quantity -= 1;
-            if(cart[foundIndexMinus].quantity == 0)
-            {
-              cart.splice(foundIndexMinus, 1);
-            }
-          }
-          loadCart(cart);
-        })
-    })
+function mathItems(array)
+{
 
 }
 
@@ -278,30 +360,6 @@ btnSearch.addEventListener("click", smoothScroll);
 function smoothScroll() {
   overSearch.scrollIntoView();
 }
-
-//   window.smoothScroll = function(target)
-// {
-//     var scrollContainer = target;
-//     do { //find scroll container
-//         scrollContainer = scrollContainer.parentNode;
-//         if (!scrollContainer) return;
-//         scrollContainer.scrollTop += 1;
-//     } while (scrollContainer.scrollTop == 0);
-
-//     var targetY = 0;
-//     do { //find the top of target relatively to the container
-//         if (target == scrollContainer) break;
-//         targetY += target.offsetTop;
-//     } while (target = target.offsetParent);
-
-//     scroll = function(c, a, b, i) {
-//         i++; if (i > 30) return;
-//         c.scrollTop = a + (b - a) / 30 * i;
-//         setTimeout(function(){ scroll(c, a, b, i); }, 20);
-//     }
-//     // start scrolling
-//     scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
-// }
 
 var btnSortApha = document.getElementById("sort-Ascen-Apha");
 
