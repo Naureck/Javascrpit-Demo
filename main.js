@@ -25,6 +25,27 @@ btn_menu.addEventListener("click", function () {
   }
 });
 
+//Button scroll on top
+ const btnScrollTop = document.querySelector("#scrollTopBtn");
+
+ window.addEventListener('scroll',function()
+ {
+    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) 
+    {
+      btnScrollTop.style.opacity = "1";
+    } 
+    else 
+    {
+      btnScrollTop.style.opacity = "0";
+    }
+ })
+
+ btnScrollTop.addEventListener('click', function()
+ {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+ })
+
 //Modal box
 var modal = document.getElementById("myModal");
 var grCart = document.getElementById("grCart");
@@ -101,13 +122,6 @@ function updateCart() {
   // Thay đổi text = total trong .cart-total-price. Chỉ có một .cart-total-price nên mình sử dụng [0].
 }
 
-// Add cart
-function addCart() {
-  let addBtn = document.querySelectorAll(".btn-addCart");
-
-  addBtn.onclick = function () {};
-}
-
 // Sticky menu
 
 var navbar = document.getElementById("menu-sticky");
@@ -182,6 +196,7 @@ function loadProducts(array) {
     const txtNumberCost = document.querySelector("#number-items-cost");
     const txtTotalCost = document.querySelectorAll(".cost-final");
     const txtTotalPriceOut = document.querySelector("#total-price-on-cart");
+    const iconCart = document.querySelector('#iconCart');
     //Button add cart
     btn.onclick = function () {
       const foundIndex = cart.findIndex((element) => element._id === item._id);
@@ -213,6 +228,7 @@ function loadProducts(array) {
         element.innerHTML = sumTotal + " $"
       });
       txtTotalPriceOut.innerHTML = sumTotal + " $"
+      iconCart.style.color = "rgb(255, 149, 0)";
       loadCart(cart);
     };
   });
@@ -262,6 +278,36 @@ function loadCart(array) {
     const txtNumberCost = document.querySelector("#number-items-cost");
     const txtTotalCost = document.querySelectorAll(".cost-final");
     const txtTotalPriceOut = document.querySelector("#total-price-on-cart");
+    const btnCheckOut = document.querySelector("#btn-clear-cart");
+    const iconCart = document.querySelector('#iconCart');
+
+    btnCheckOut.addEventListener('click', function()
+    {
+      const cartLength = cart.length;
+      if(cartLength != 0)
+      {
+        cart.splice(0, cartLength);
+      }
+      const subtraction = cart.reduce((tong, element) => {
+        return tong + element.quantity;
+      }, 0);
+
+      const subTotal = cart.reduce((total, element) =>
+      {
+        return total + (element.quantity * element.price);
+      }, 0);
+      txtCart.innerHTML = "Your cart have " + subtraction + " items";
+      txtNumber.innerHTML = subtraction;
+      txtNumberCost.innerHTML = subtraction;
+      txtTotalCost.forEach((element) =>
+      {
+        element.innerHTML = subTotal + " $"
+      });
+      txtTotalPriceOut.innerHTML = subTotal + " $"
+      iconCart.style.color = "black";
+      loadCart(cart);
+    })
+
 
     btnRemove.onclick = function () {
       const foundIndexDel = array.findIndex(
@@ -287,6 +333,11 @@ function loadCart(array) {
         element.innerHTML = subTotal + " $"
       });
       txtTotalPriceOut.innerHTML = subTotal + " $"
+
+      if (cart.length == 0)
+      {
+        iconCart.style.color = "black";
+      }
       loadCart(cart);
     };
     //Button add quantity
@@ -350,10 +401,7 @@ function loadCart(array) {
   });
 }
 
-function mathItems(array)
-{
 
-}
 
 btnSearch.addEventListener("click", smoothScroll);
 
@@ -361,38 +409,27 @@ function smoothScroll() {
   overSearch.scrollIntoView();
 }
 
-var btnSortApha = document.getElementById("sort-Ascen-Apha");
+//Sort button
+const btnSort_Alpha = document.querySelector("#sort-Ascent-Alpha");
+const btnSort_LowToHight = document.querySelector("#sort-Ascent-LTH");
+const btnSort_HightToLow = document.querySelector("#sort-Ascent-HTL");
 
-btnSortApha.addEventListener("click", sortList);
+btnSort_Alpha.addEventListener('click', function()
+{
+  const sortAlpha = arrProducts.sort((a, b) => a.name.localeCompare(b.name));
+  loadProducts(sortAlpha);
+});
 
-function sortList() {
-  var list, i, switching, b, shouldSwitch;
-  list = document.getElementById("info-list");
-  switching = true;
+btnSort_LowToHight.addEventListener('click', function()
+{
+  const sortLTH = arrProducts.sort((a, b) => a.price.localeCompare(b.price))
+  loadProducts(sortLTH);
+});
 
-  while (switching) {
-    switching = false;
-    var getName = arrProducts.map((name) => {
-      return arrProducts.name;
-    });
+btnSort_HightToLow.addEventListener('click', function()
+{
+  const ascending  = arrProducts.sort((a, b) => a.price.localeCompare(b.price))
+  const descending = ascending.reverse();
+  loadProducts(descending);
+})
 
-    var nameLength = getName.length;
-
-    for (i = 0; i < nameLength - 1; i++) {
-      shouldSwitch = false;
-      if (
-        getName[i].innerHTML.toLowerCase() >
-        getName[i + 1].innerHTML.toLowerCase()
-      ) {
-        shouldSwitch = true;
-        break;
-      }
-    }
-
-    if (shouldSwitch) {
-      getName[i].parentNode.insertBefore(getName[i + 1], getName[i]);
-      switching = true;
-    }
-  }
-  loadProducts(list);
-}
