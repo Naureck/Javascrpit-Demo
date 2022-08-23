@@ -383,6 +383,64 @@ html
     box-shadow: 0px 1px 5px 0px #888888;
 }
 
+/* Header on top mobile */
+.header-mobile
+{
+    display: none;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(40,40,40);
+}
+.header-mobile .header-mobile-in
+{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 0;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.user-n-cart-mobile
+{
+    display: flex;
+    flex-direction: row;
+}
+
+.header-mobile .header-mobile-in .logo-onTop-mobile
+{
+    padding: 5px 10px;
+    margin-top: 5px;
+}
+
+.header-mobile-in .logo-onTop-mobile a
+{
+    padding: 9px;
+    text-decoration: none;
+    color: white;
+    background-color: rgb(255, 149, 0);
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.1s ease-in-out;
+}
+
+.header-mobile-in .logo-onTop-mobile a:hover
+{
+    background-color: rgb(255, 99, 3);
+}
+
+.user-btn-mobile
+{
+    margin-right: 5px;
+}
+
+.user-btn-mobile, .cart-btn-mobile
+{
+    padding: 9px 12px;
+    background-color: rgb(228, 228, 228);
+    border-radius: 50%;
+    font-weight: bold;
+}
+
 /* Nav mobile */
 .nav-mobile {
     display: none;
@@ -399,7 +457,7 @@ html
   }
   
   .nav-mobile .item_menu {
-    background: #f1df11;
+    background: rgb(70, 70, 70);
     position: absolute;
     top: 100%;
     width: 100%;
@@ -408,7 +466,7 @@ html
   }
   
   .item_menu ul li a {
-    color: #43433e;
+    color: white;
     display: block;
     padding: .5rem 1rem;
     text-decoration: none;
@@ -418,7 +476,7 @@ html
   }
   
   .item_menu ul li a:hover {
-    color: #fff;
+    color: rgb(255, 149, 0);
   }
   
   .item_menu form {
@@ -426,7 +484,9 @@ html
     position: relative;
   }
   
-  .item_menu form input {
+  .item_menu form input 
+  {
+    margin-top: 10px;
     width: 100%;
     border: none;
     background: #fff;
@@ -435,7 +495,9 @@ html
     border-radius: 12px;
   }
   
-  .item_menu form button {
+  .item_menu form button 
+  {
+    margin-top: 10px;
     padding: 5px;
     border-radius: 12px;
     position: absolute;
@@ -821,6 +883,7 @@ html
 /* Shopping cart - left */
 .shop-cart-content-main .cart-content-left
 {
+    background-color: #fff;
     width: 800px;
     height: 100%;
     padding-right: 85px;

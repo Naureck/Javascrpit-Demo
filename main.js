@@ -28,17 +28,17 @@ btn_menu.addEventListener("click", function () {
 //Button scroll on top
  const btnScrollTop = document.querySelector("#scrollTopBtn");
 
- window.addEventListener('scroll',function()
- {
-    if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) 
-    {
-      btnScrollTop.style.opacity = "1";
-    } 
-    else 
-    {
-      btnScrollTop.style.opacity = "0";
-    }
- })
+window.addEventListener('scroll',function()
+{
+  if (document.body.scrollTop > 30 || document.documentElement.scrollTop > 30) 
+  {
+    btnScrollTop.style.opacity = "1";
+  } 
+  else 
+  {
+    btnScrollTop.style.opacity = "0";
+  }
+})
 
  btnScrollTop.addEventListener('click', function()
  {
@@ -49,9 +49,15 @@ btn_menu.addEventListener("click", function () {
 //Modal box
 var modal = document.getElementById("myModal");
 var grCart = document.getElementById("grCart");
+const grCartMobile = document.querySelector("#grCart-mobile")
 var addBtn = document.getElementById("addCart");
 var btnClose = document.getElementById("close");
 var btnReturn = document.getElementById("btn-returnBack");
+
+grCartMobile.onclick = function()
+{
+  modal.style.display = "block";
+}
 
 grCart.onclick = function () {
   modal.style.display = "block";
@@ -257,11 +263,11 @@ function loadCart(array) {
               <span id="plus-btn-${item._id}">+</span>
           </div>
 
-          <div class="price-item-cart">
+          <div class="price-item-cart txtCart-hidden">
               <div><span class="cart-price">${+item.price}</span> $</div>
           </div>
 
-          <div class="price-item-cart">
+          <div class="price-item-cart txtCart-hidden">
               <div><span id="total-price">${+item.price * item.quantity}</span> $</div>
           </div>
       </div>`;

@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>Javascript</title>
+    <title>Supermarket - ThyHuynh</title>
     <meta name="description" content="That my Javascript Basic">
     <meta name="keywords" content="course of Javascript">
     <meta charset='UTF-8'>
@@ -31,15 +31,33 @@
     <!-- Header on menu -->
     <div class='header-top-bg'>
         <div class="header-top-in">
+            <!-- Header mobile -->
+            <div class="header-mobile">
+                <div class="header-mobile-in">
+                    <div class="logo-onTop-mobile"><a href="/index.html">SpJS</a></div>
+
+                    <div class="user-n-cart-mobile"> 
+                        <div class="user-btn-mobile">
+                            <i class="fa fa-user-o fa-1x" aria-hidden="true"></i>
+                        </div>
+    
+                        <div id="grCart-mobile" class="cart-btn-mobile">
+                            <i class="fa fa-shopping-cart fa-1x" aria-hidden="true"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- End header moblie -->
+            
             <div class="header-on-menu">
                 <div class="container">
                     <div class="row">
                         <!-- Logo -->
-                        <div class="col-xl-3 col-lg-3 col-md-3 col-sm-3 col-xs-12 part-left">
+                        <div class="part-left">
                             <a href="index.html">Supermarket JS</a>
                         </div>
                         <!-- Search & user & shopping cart-->
-                        <div class="col-xl-9 col-lg-9 col-md-9 col-sm-9 col-xs-12 text-xs-right part-right">
+                        <div class="text-xs-right part-right">
                             <div class="form-group-search">
                                 <input id="searchMachine" class="form-control search-bar" type="text"
                                     placeholder="Search..." />
@@ -169,7 +187,7 @@
             </div>
         </div>
     </div>
-
+    <!-- Banner ads -->
     <div class="body-middle-bg">
         <div class="body-middle-in">
             <div class="banner-mini">
@@ -360,8 +378,8 @@
                                 <div class="title-on-items">
                                     <div class="txt-cart">PRODUCT DETAILS</div>
                                     <div class="txt-cart">QUANTITY</div>
-                                    <div class="txt-cart">PRICE</div>
-                                    <div class="txt-cart">TOTAL</div>
+                                    <div class="txt-cart txtCart-hidden">PRICE</div>
+                                    <div class="txt-cart txtCart-hidden">TOTAL</div>
                                 </div>
 
                                 <div class="cart-info-row">
@@ -389,6 +407,7 @@
                                             <div><span>10000000</span> vnđ</div>
                                         </div>
                                     </div> -->
+                                    <h3><b>Your cart is empty ! Buy now.</b></h3>
                                 </div>
                                 
                             </div>
